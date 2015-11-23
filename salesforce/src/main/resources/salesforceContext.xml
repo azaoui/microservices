@@ -1,0 +1,20 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:fss="http://www.salesforce.com/schema/springsecurity"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.salesforce.com/schema/springsecurity http://www.salesforce.com/schema/springsecurity/force-springsecurity-1.3.xsd
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <fss:oauth>
+        <fss:oauthInfo endpoint="http://login.salesforce.com"
+                       oauth-key="3MVG9Rd3qC6oMalWowt48EMGlf8rKCLQuO2OiJ4B8lbyRrMPIuCuBCUfpo_8XowXx9UdnK._sFoBGYFW2RHB_" oauth-secret="6783703038436751076"/>
+
+    </fss:oauth>
+
+    <security:http use-expressions="true">
+        <security:intercept-url pattern="/*" access="isAuthenticated()" />
+    </security:http>
+
+</beans>
